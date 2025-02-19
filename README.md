@@ -6,15 +6,15 @@ See D2L for lab instructions
 
 #Generate aws Key for AWS
 
-ssh-keygen -t ed25519 -f
+```ssh-keygen -t ed25519 -f```
 
 # Import Key to AWS
 
-./import_lab_key ~/.ssh/aws
+```./import_lab_key ~/.ssh/aws```
 
 # Run your playbook
 
-ansible-playbook playbook.yml
+```ansible-playbook playbook.yml```
 
 #Screenshot
 
