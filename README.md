@@ -10,7 +10,7 @@ See D2L for lab instructions
 
 # Import Key to AWS
 
-# The Script provided requires you to input a private key file.
+The Script provided requires you to input a private key file.
 
 ```./import_lab_key ~/.ssh/aws```
 
