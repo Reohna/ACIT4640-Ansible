@@ -9,7 +9,8 @@ See D2L for lab instructions
 ssh-keygen -t ed25519 -f
 
 # Import Key to AWS
-./import_lab_key
+
+./import_lab_key ~/.ssh/aws
 
 # Run your playbook
 
