@@ -18,6 +18,6 @@ The Script provided requires you to input a private key file.
 
 ```ansible-playbook playbook.yml```
 
-#Screenshot
+# Screenshot
 
 <img width="614" alt="image" src="https://github.com/user-attachments/assets/705668ec-b6ab-4e92-b5b8-f83b48e05a71" />
