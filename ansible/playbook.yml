@@ -1,8 +1,33 @@
-- name: Configure web servers
-  tasks:
-    - name: Install nginx
-    - name: create directory structure for web documents
-    - name: copy nginx conf file to server
-    - name: create link to nginx config file to enable it
-    - name: Generate index.html file from template
-    - name: reload nginx service
+    - name: Configure web servers
+      hosts: web
+      remote_user: ubuntu
+      become: true
+      tasks:
+        - name: Install nginx
+          apt:
+            name: nginx
+            state: latest
+            update_cache: yes
+        - name: create directory structure for web documents
+          ansible.builtin.file:
+            path: /web/html
+            state: directory
+            recurse: yes
+        - name: copy nginx conf file to server
+          copy:
+            src: files/nginx.conf
+            dest: /etc/nginx/sites-available
+        - name: create link to nginx config file to enable it
+          file: 
+            src: /etc/nginx/sites-available/nginx.conf
+            dest: /etc/nginx/sites-enabled/nginx.conf
+            state: link
+        - name: Generate index.html file from template
+          template:
+            src: templates/index.html.j2
+            dest: /web/html/index.html
+        - name: reload nginx service
+          service:
+              name: nginx
+              state: reloaded
+              enabled: true
